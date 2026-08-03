@@ -1,12 +1,5 @@
 INSERT INTO trains
-(
-    route_id,
-    name
-)
+(route_id,
+ name)
 
-VALUES
-
-    (
-        (SELECT id FROM routes LIMIT 1),
-    'Udarata Menike'
-    );
+VALUES ((SELECT id FROM routes LIMIT 1), 'Udarata Menike' );

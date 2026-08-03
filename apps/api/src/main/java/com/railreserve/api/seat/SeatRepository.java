@@ -12,10 +12,10 @@ import java.util.UUID;
 public interface SeatRepository extends JpaRepository<Seat, UUID> {
     @Lock(LockModeType.PESSIMISTIC_WRITE)
     @Query("""
-        SELECT s
-        FROM Seat s
-        WHERE s.id = :seatId
-    """)
+                SELECT s
+                FROM Seat s
+                WHERE s.id = :seatId
+            """)
     Seat findByIdForUpdate(UUID seatId);
 
 

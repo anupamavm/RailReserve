@@ -1,31 +1,16 @@
 INSERT INTO routes
-(
-    name
-)
-VALUES
-    (
-        'Colombo Fort - Badulla'
-    );
+(name)
+VALUES ('Colombo Fort - Badulla');
 
 
 
 INSERT INTO stations
-(
-    route_id,
-    name,
-    station_order,
-    distance_km
-)
+(route_id,
+ name,
+ station_order,
+ distance_km)
 
-VALUES
-
-
-    (
-        (SELECT id FROM routes LIMIT 1),
-    'Colombo Fort',
-    1,
-    0
-    ),
+VALUES ((SELECT id FROM routes LIMIT 1), 'Colombo Fort', 1, 0 ),
 
 
 (

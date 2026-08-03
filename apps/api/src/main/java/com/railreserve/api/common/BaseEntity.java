@@ -27,7 +27,7 @@ public abstract class BaseEntity {
 
 
     @PrePersist
-    protected void onCreate(){
+    protected void onCreate() {
 
         createdAt = Instant.now();
 

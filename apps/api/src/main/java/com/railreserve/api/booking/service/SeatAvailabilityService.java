@@ -24,14 +24,13 @@ public class SeatAvailabilityService {
     private final StationRepository stationRepository;
 
 
-
     public List<AvailableSeatResponse> findAvailableSeats(
 
             UUID originId,
 
             UUID destinationId
 
-    ){
+    ) {
 
 
         Station origin =
@@ -44,10 +43,8 @@ public class SeatAvailabilityService {
                         .orElseThrow();
 
 
-
         List<Seat> seats =
                 seatRepository.findAll();
-
 
 
         return seats.stream()
@@ -78,7 +75,6 @@ public class SeatAvailabilityService {
                         ))
 
                 .toList();
-
 
 
     }

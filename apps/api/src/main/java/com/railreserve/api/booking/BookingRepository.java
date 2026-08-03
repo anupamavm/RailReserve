@@ -7,21 +7,21 @@ import java.util.List;
 import java.util.UUID;
 
 
-public interface BookingRepository extends JpaRepository<Booking, UUID>{
+public interface BookingRepository extends JpaRepository<Booking, UUID> {
 
     @Query("""
-SELECT b
-FROM Booking b
-
-WHERE b.seat.id = :seatId
-
-AND b.status = 'CONFIRMED'
-
-AND b.startOrder < :endOrder
-
-AND b.endOrder > :startOrder
-
-""")
+            SELECT b
+            FROM Booking b
+            
+            WHERE b.seat.id = :seatId
+            
+            AND b.status = 'CONFIRMED'
+            
+            AND b.startOrder < :endOrder
+            
+            AND b.endOrder > :startOrder
+            
+            """)
     List<Booking> findOverlappingBookings(
 
             UUID seatId,

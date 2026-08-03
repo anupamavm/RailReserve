@@ -1,7 +1,6 @@
 package com.railreserve.api.booking.dto;
 
 
-
 import lombok.Data;
 
 import java.util.UUID;

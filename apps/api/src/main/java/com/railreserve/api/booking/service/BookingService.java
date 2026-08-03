@@ -7,7 +7,6 @@ import com.railreserve.api.booking.dto.BookingRequest;
 import com.railreserve.api.seat.SeatRepository;
 import com.railreserve.api.station.StationRepository;
 import lombok.RequiredArgsConstructor;
-
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -15,7 +14,6 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 @RequiredArgsConstructor
 public class BookingService {
-
 
 
     private final BookingRepository bookingRepository;
@@ -27,20 +25,18 @@ public class BookingService {
     private final FareService fareService;
 
 
-
     @Transactional
     public Booking createBooking(
 
             BookingRequest request
 
-    ){
+    ) {
 
 
         var seat =
                 seatRepository.findByIdForUpdate(
-                                request.getSeatId()
-                        );
-
+                        request.getSeatId()
+                );
 
 
         var origin =
@@ -50,13 +46,11 @@ public class BookingService {
                         .orElseThrow();
 
 
-
         var destination =
                 stationRepository.findById(
                                 request.getDestinationStationId()
                         )
                         .orElseThrow();
-
 
 
         var conflicts =
@@ -71,15 +65,13 @@ public class BookingService {
                 );
 
 
-
-        if(!conflicts.isEmpty()){
+        if (!conflicts.isEmpty()) {
 
             throw new RuntimeException(
                     "Seat already booked"
             );
 
         }
-
 
 
         Booking booking = new Booking();
@@ -115,13 +107,10 @@ public class BookingService {
         );
 
 
-
         return bookingRepository.save(booking);
 
 
-
     }
-
 
 
 }

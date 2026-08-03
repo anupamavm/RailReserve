@@ -11,7 +11,7 @@ import java.util.UUID;
 
 
 public interface StationRepository
-        extends JpaRepository<Station, UUID>{
+        extends JpaRepository<Station, UUID> {
 
     List<Station> findByRouteIdOrderByStationOrder(
             UUID routeId
@@ -19,10 +19,10 @@ public interface StationRepository
 
     @Lock(LockModeType.PESSIMISTIC_WRITE)
     @Query("""
-        SELECT s
-        FROM Station s
-        WHERE s.id = :stationId
-    """)
+                SELECT s
+                FROM Station s
+                WHERE s.id = :stationId
+            """)
     Optional<Station> findByIdForUpdate(UUID stationId);
 
 }

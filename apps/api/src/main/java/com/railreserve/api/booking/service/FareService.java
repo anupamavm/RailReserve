@@ -1,13 +1,10 @@
 package com.railreserve.api.booking.service;
 
 
-
 import com.railreserve.api.station.Station;
 import org.springframework.stereotype.Service;
 
-
 import java.math.BigDecimal;
-
 
 
 @Service
@@ -18,14 +15,13 @@ public class FareService {
             BigDecimal.valueOf(2.5);
 
 
-
     public BigDecimal calculate(
 
             Station origin,
 
             Station destination
 
-    ){
+    ) {
 
 
         int distance =
@@ -34,10 +30,8 @@ public class FareService {
                         origin.getDistanceKm();
 
 
-
         return BigDecimal.valueOf(distance)
                 .multiply(RATE);
-
 
 
     }

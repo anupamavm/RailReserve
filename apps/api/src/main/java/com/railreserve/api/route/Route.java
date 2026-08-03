@@ -3,14 +3,16 @@ package com.railreserve.api.route;
 import com.railreserve.api.common.BaseEntity;
 import com.railreserve.api.station.Station;
 import jakarta.persistence.*;
-
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.util.List;
 
 
 @Entity
-@Table(name="routes")
+@Table(name = "routes")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -18,12 +20,11 @@ import java.util.List;
 public class Route extends BaseEntity {
 
 
-    @Column(nullable=false)
+    @Column(nullable = false)
     private String name;
 
 
     private boolean active = true;
-
 
 
     @OneToMany(

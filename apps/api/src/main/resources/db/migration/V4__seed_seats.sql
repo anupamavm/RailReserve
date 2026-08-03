@@ -1,18 +1,9 @@
 INSERT INTO coaches
-(
-    train_id,
-    coach_number,
-    coach_type
-)
+(train_id,
+ coach_number,
+ coach_type)
 
-VALUES
-
-
-    (
-        (SELECT id FROM trains LIMIT 1),
-    1,
-    'RESERVED'
-    ),
+VALUES ((SELECT id FROM trains LIMIT 1), 1, 'RESERVED' ),
 
 
 (

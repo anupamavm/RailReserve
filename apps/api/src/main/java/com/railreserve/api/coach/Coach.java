@@ -4,14 +4,16 @@ import com.railreserve.api.common.BaseEntity;
 import com.railreserve.api.seat.Seat;
 import com.railreserve.api.train.Train;
 import jakarta.persistence.*;
-
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.util.List;
 
 
 @Entity
-@Table(name="coaches")
+@Table(name = "coaches")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -22,21 +24,18 @@ public class Coach extends BaseEntity {
     private Integer coachNumber;
 
 
-
-    @Column(name="coach_type")
+    @Column(name = "coach_type")
     private String coachType;
 
 
-
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="train_id")
+    @JoinColumn(name = "train_id")
     private Train train;
 
 
-
     @OneToMany(
-            mappedBy="coach",
-            cascade=CascadeType.ALL
+            mappedBy = "coach",
+            cascade = CascadeType.ALL
     )
     private List<Seat> seats;
 

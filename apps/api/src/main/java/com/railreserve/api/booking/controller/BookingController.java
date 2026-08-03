@@ -1,14 +1,10 @@
 package com.railreserve.api.booking.controller;
 
 
-
 import com.railreserve.api.booking.dto.BookingRequest;
 import com.railreserve.api.booking.service.BookingService;
 import com.railreserve.api.booking.service.SeatAvailabilityService;
-import com.railreserve.api.seat.SeatRepository;
 import lombok.RequiredArgsConstructor;
-
-
 import org.springframework.web.bind.annotation.*;
 
 import java.util.UUID;
@@ -26,7 +22,7 @@ public class BookingController {
     @PostMapping
     public Object create(
             @RequestBody BookingRequest request
-    ){
+    ) {
 
         return service.createBooking(request);
 
@@ -39,7 +35,7 @@ public class BookingController {
 
             @RequestParam UUID destination
 
-    ){
+    ) {
 
         return seatAvailabilityService
                 .findAvailableSeats(
