@@ -1,0 +1,24 @@
+spring:
+
+  application:
+    name: railreserve-api
+
+  datasource:
+
+    url: jdbc:postgresql://${DB_HOST:localhost}:${DB_PORT:5432}/${DB_NAME:railreserve}
+    username: ${DB_USERNAME:postgres}
+    password: ${DB_PASSWORD:postgres}
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    open-in-view: false
+    properties:
+      hibernate:
+        format_sql: true
+
+  flyway:
+    enabled: true
+
+server:
+  port: ${SERVER_PORT:8080}

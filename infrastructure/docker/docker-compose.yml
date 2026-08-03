@@ -1,0 +1,44 @@
+services:
+  postgres:
+    image: postgres:16
+
+    container_name: railreserve-postgres
+
+    environment:
+      POSTGRES_DB: railreserve
+
+      POSTGRES_USER: postgres
+
+      POSTGRES_PASSWORD: postgres
+
+    ports:
+      - "5432:5432"
+
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  api:
+    build:
+      context: ../../apps/api
+
+    container_name: railreserve-api
+
+    depends_on:
+      - postgres
+
+    environment:
+      DB_HOST: postgres
+
+      DB_PORT: 5432
+
+      DB_NAME: railreserve
+
+      DB_USERNAME: postgres
+
+      DB_PASSWORD: postgres
+
+    ports:
+      - "8080:8080"
+
+volumes:
+  postgres_data:
