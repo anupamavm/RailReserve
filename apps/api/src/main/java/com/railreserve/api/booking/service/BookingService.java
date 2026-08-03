@@ -37,15 +37,14 @@ public class BookingService {
 
 
         var seat =
-                seatRepository.findById(
+                seatRepository.findByIdForUpdate(
                                 request.getSeatId()
-                        )
-                        .orElseThrow();
+                        );
 
 
 
         var origin =
-                stationRepository.findById(
+                stationRepository.findByIdForUpdate(
                                 request.getOriginStationId()
                         )
                         .orElseThrow();
