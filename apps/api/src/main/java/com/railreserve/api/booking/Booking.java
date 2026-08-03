@@ -7,6 +7,8 @@ import jakarta.persistence.*;
 
 import lombok.*;
 
+import java.math.BigDecimal;
+
 
 @Entity
 @Table(name="bookings")
@@ -34,5 +36,18 @@ public class Booking extends BaseEntity {
     @JoinColumn(name="destination_station_id")
     private Station destinationStation;
 
+
+    @Column(nullable=false)
+    private Integer startOrder;
+
+
+    @Column(nullable=false)
+    private Integer endOrder;
+
+
+    private BigDecimal fare;
+
+
+    private String status;
 
 }
