@@ -1,7 +1,7 @@
 package com.railreserve.api.booking.service;
 
 
-import com.railreserve.api.booking.Booking;
+import com.railreserve.api.booking.entity.Booking;
 import com.railreserve.api.booking.BookingRepository;
 import com.railreserve.api.booking.dto.BookingRequest;
 import com.railreserve.api.seat.SeatRepository;

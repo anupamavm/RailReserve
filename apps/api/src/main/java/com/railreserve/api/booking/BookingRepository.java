@@ -1,5 +1,6 @@
 package com.railreserve.api.booking;
 
+import com.railreserve.api.booking.entity.Booking;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 

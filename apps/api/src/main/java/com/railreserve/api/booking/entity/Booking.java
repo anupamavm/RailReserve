@@ -1,4 +1,4 @@
-package com.railreserve.api.booking;
+package com.railreserve.api.booking.entity;
 
 import com.railreserve.api.common.BaseEntity;
 import com.railreserve.api.seat.Seat;
@@ -47,6 +47,7 @@ public class Booking extends BaseEntity {
     private BigDecimal fare;
 
 
-    private String status;
+    @Enumerated(EnumType.STRING)
+    private BookingStatus status;
 
 }
