@@ -1,10 +1,10 @@
 package com.railreserve.api.station;
 
-import lombok.RequiredArgsConstructor;
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-import java.util.UUID;
+import lombok.RequiredArgsConstructor;
 
 
 @Service
@@ -15,10 +15,10 @@ public class StationService {
     private final StationRepository repository;
 
 
-    public List<Station> getStations(UUID routeId) {
+    public List<Station> getStations() {
 
         return repository
-                .findByRouteIdOrderByStationOrder(routeId);
+                .findAllByOrderByStationOrderAsc();
 
     }
 

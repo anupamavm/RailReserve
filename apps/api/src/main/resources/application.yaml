@@ -1,10 +1,11 @@
 spring:
-
   application:
     name: railreserve-api
 
-  datasource:
+  mvc:
+    log-request-details: true
 
+  datasource:
     url: jdbc:postgresql://${DB_HOST:localhost}:${DB_PORT:5432}/${DB_NAME:railreserve}
     username: ${DB_USERNAME:postgres}
     password: ${DB_PASSWORD:postgres}
@@ -13,14 +14,28 @@ spring:
     hibernate:
       ddl-auto: validate
     open-in-view: false
+    show-sql: true
     properties:
       hibernate:
         format_sql: true
 
   flyway:
     enabled: true
-  locations:
-    - classpath:db/migration
+    locations:
+      - classpath:db/migration
 
 server:
   port: ${SERVER_PORT:8080}
+  tomcat:
+    accesslog:
+      enabled: true
+      pattern: '%h %l %u %t "%r" %s %b'
+
+logging:
+  level:
+    root: INFO
+    org.springframework.web: DEBUG
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} %-5level [%thread] %logger{36} - %msg%n"
