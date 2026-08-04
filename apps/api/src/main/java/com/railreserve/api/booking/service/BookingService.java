@@ -4,6 +4,7 @@ package com.railreserve.api.booking.service;
 import com.railreserve.api.booking.entity.Booking;
 import com.railreserve.api.booking.BookingRepository;
 import com.railreserve.api.booking.dto.BookingRequest;
+import com.railreserve.api.booking.entity.BookingStatus;
 import com.railreserve.api.seat.SeatRepository;
 import com.railreserve.api.station.StationRepository;
 import lombok.RequiredArgsConstructor;
@@ -103,7 +104,7 @@ public class BookingService {
 
 
         booking.setStatus(
-                "CONFIRMED"
+                BookingStatus.CONFIRMED
         );
 
 
